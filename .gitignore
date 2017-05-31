@@ -1,0 +1,8 @@
+/node_modules/*
+/typings
+/client/app/**/*.js
+/client/app/**/*.map
+/server/**/*.js
+/server/**/*.map
+
+npm-debug*

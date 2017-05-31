@@ -1,0 +1,4 @@
+30-05-2017
+
+changed gulpfile.js, added favourite browser,
+app.component.ts: removed unneccessary imports
