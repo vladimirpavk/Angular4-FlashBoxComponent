@@ -2,6 +2,7 @@
 /typings
 /client/app/**/*.js
 /client/app/**/*.map
+/client/app/**/*.d.ts
 /server/**/*.js
 /server/**/*.map
 

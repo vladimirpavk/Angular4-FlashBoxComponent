@@ -1,4 +1,4 @@
-var __moduleName: any;
+let __moduleName: any;
 
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
