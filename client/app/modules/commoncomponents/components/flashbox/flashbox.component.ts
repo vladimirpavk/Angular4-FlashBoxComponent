@@ -15,13 +15,33 @@ export class FlashBoxComponent implements OnInit{
     private intervalCounter: number = 0;
 
     private _type: string = "primary";
+    /**
+     * Set type of flash box.
+     * Available values: 
+     * default, primary, success, info, warning, danger
+     * Default value is primary. 
+     */
     @Input("type")
     set type(value: string){
         this._type= value;
         this.setType();
     }
-    
+   
     private _position: string = "tr";
+     /**
+     * Set position of flash box.
+     * Available values:
+     * tr - top-right,
+     * tm - top-middle,
+     * tl - top-left,
+     * cr - center-right,
+     * cm - center-middle,
+     * cl - center-left,
+     * br - bottom-right,
+     * bm - bottom-middle,
+     * bl - bottom-left
+     * Default value is tr. 
+     */
     @Input("position")
     set position(value: string){
         this._position= value;
@@ -29,12 +49,19 @@ export class FlashBoxComponent implements OnInit{
     }
     
     private _maxwidth: string = "300px";
+    /**
+     * Specify component's maximum width.
+     * Default value is 300 px.
+     */
     @Input("maxwidth")
     set maxwidth(value: string){
         this._maxwidth= value;
     }
     
     private _setTimeout: number = 2000;    
+    /**
+     * Specify the amount of time the component is visible in ms. Default value is 2000ms.
+     */
     @Input("setTimeout")
     set setTimeout(value : number){
         this._setTimeout= value;      
@@ -126,7 +153,10 @@ export class FlashBoxComponent implements OnInit{
             };
         }
     }
-
+    /**
+     * Use this method to show message only once.
+     * Message will appear and then disappear.
+     */
     public flashOnce(): void{        
         this.isShown=!this.isShown;
 
@@ -134,15 +164,24 @@ export class FlashBoxComponent implements OnInit{
             this.isShown=!this.isShown;        
         }, this._setTimeout);
     }
-
+    /**
+     * Use this method to show message.
+     * Message will be visible until hide() method is called.
+     */
     public show(): void{
         this.isShown=false;
     }
-
+    /**
+     * Use this method to hide message.
+     * Message will be hidden until show() method is called.
+     */
     public hide(): void{
          this.isShown=true;
     }
-
+    /**
+     * Use this message to start message flashing.
+     * Message will be flashing until stopFlashing() method is called.
+     */
     public startFlashing(): void{
         //if already blinking do nothing
         if(this.intervalCounter!=0) return;
@@ -153,7 +192,10 @@ export class FlashBoxComponent implements OnInit{
             this.isShown=!this.isShown;        
         }, this._setTimeout);
     }
-
+    /**
+     * Use this message to stop message flashing.
+     * Message will be stopped until startFlashing() method is called.
+     */
     public stopFlashing(): void{
         if(this.intervalCounter != 0){
             clearInterval(this.intervalCounter);
