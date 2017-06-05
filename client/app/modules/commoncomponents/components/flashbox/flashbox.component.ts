@@ -154,6 +154,13 @@ export class FlashBoxComponent implements OnInit{
         }
     }
     /**
+     * Use this method to show/hide message
+     */
+    public toggle(): void{
+        this.isShown=!this.isShown;
+    }
+    
+    /**
      * Use this method to show message only once.
      * Message will appear and then disappear.
      */
