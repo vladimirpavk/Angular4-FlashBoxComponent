@@ -186,7 +186,7 @@ export class FlashBoxComponent implements OnInit{
          this.isShown=true;
     }
     /**
-     * Use this message to start message flashing.
+     * Use this method to start message flashing.
      * Message will be flashing until stopFlashing() method is called.
      */
     public startFlashing(): void{
@@ -200,7 +200,7 @@ export class FlashBoxComponent implements OnInit{
         }, this._setTimeout);
     }
     /**
-     * Use this message to stop message flashing.
+     * Use this method to stop message flashing.
      * Message will be stopped until startFlashing() method is called.
      */
     public stopFlashing(): void{
@@ -211,5 +211,13 @@ export class FlashBoxComponent implements OnInit{
             if(!this.isShown) this.isShown=true;
         }
     }
+
+    /**
+     * Use this method to start message flashing for predefined number of times. 
+     */
+    public flashNumTimes(numOfTimes: number): void{
+        for(let x=0; x<numOfTimes; x++) this.flashOnce();
+    }
+
 
 }
