@@ -215,8 +215,21 @@ export class FlashBoxComponent implements OnInit{
     /**
      * Use this method to start message flashing for predefined number of times. 
      */
-    public flashNumTimes(numOfTimes: number): void{
-        for(let x=0; x<numOfTimes; x++) this.flashOnce();
+    public flashTimes(numOfTimes: number): void{
+        console.log("FlashTimes "+this._setTimeout);
+        //if already blinking do nothing
+        if(this.intervalCounter!=0) return;
+
+        this.isShown=!this.isShown;
+        setTimeout(()=>{
+            console.log("Shown");    
+            this.intervalCounter=setInterval(()=>{
+                this.isShown=!this.isShown;
+                setTimeout(function() {
+                    console.log("Hidden");
+                }, 500);
+            },this._setTimeout);        
+        }, 500);       
     }
 
 

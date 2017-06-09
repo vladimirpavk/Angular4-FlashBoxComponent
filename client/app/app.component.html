@@ -60,7 +60,8 @@
 <br>
 <button (click)="bm1.startFlashing()">Start flashing</button>
 <button (click)="bm1.stopFlashing()">Stop flashing</button>
-<button (click)="bm1.flashOnce()">Flash once</button>
+<!--<button (click)="bm1.flashOnce()">Flash once</button>-->
+<button (click)="bm1.flashTimes(5)">Flash times</button>
 <br>
 
 <flash-box [type]="select_type.value" [position]="select_position.value" max-width="300px" setTimeout=2000 #bm1>
