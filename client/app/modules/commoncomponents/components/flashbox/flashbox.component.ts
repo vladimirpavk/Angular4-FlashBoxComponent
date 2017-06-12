@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 
 let __moduleName: any;
 
@@ -10,9 +10,23 @@ let __moduleName: any;
 })
 export class FlashBoxComponent implements OnInit{
    
-    private isShown: boolean = true;
+    private isShown: boolean = false;
     //counter handler
     private intervalCounter: number = 0;
+    private _timeOutCounter: number = 0;
+
+    //emit when message start showing up
+    private _onStartVisible = new EventEmitter();
+    //emit when message is completely visible
+    private _onEndVisible = new EventEmitter();
+    //emit when message start dissapearing
+    private _onStartHidden = new EventEmitter();
+    //emit when message is hidden
+    private _onEndHidden = new EventEmitter();
+    //emit when you try to show message that is already visible
+    private _alreadyVisible = new EventEmitter();
+    //emit when you try to hide message that is not visible   
+    private _alreadyHidden = new EventEmitter();
 
     private _type: string = "primary";
     /**
@@ -71,7 +85,27 @@ export class FlashBoxComponent implements OnInit{
 
     private style_position: boolean[] = [false, false, false, false, false, false, false, false, false];
 
-    constructor(){}
+    constructor(){
+        //subscribe to events
+        this._onStartVisible.subscribe(()=>{
+            console.log("_onStartVisible event fired");
+        });
+        this._onEndVisible.subscribe(()=>{
+            console.log("_onEndVisible event fired");
+        });
+        this._onStartHidden.subscribe(()=>{
+            console.log("_onStartHidden event fired");
+        });
+        this._onEndHidden.subscribe(()=>{
+            console.log("_onEndHidden event fired");
+        });
+        this._alreadyVisible.subscribe(()=>{
+            console.log("_alreadyVisible event fired");            
+        });
+        this._alreadyHidden.subscribe(()=>{
+            console.log("_alreadyHidden event fired");
+        });
+    }
 
     ngOnInit(){
         this.setType();
@@ -157,46 +191,86 @@ export class FlashBoxComponent implements OnInit{
      * Use this method to show/hide message
      */
     public toggle(): void{
-        this.isShown=!this.isShown;
+        if(this.isShown) this.hide();
+        else this.show();
     }
     
     /**
      * Use this method to show message only once.
      * Message will appear and then disappear.
-     */
-    public flashOnce(): void{        
-        this.isShown=!this.isShown;
-
-        setTimeout(()=> {            
-            this.isShown=!this.isShown;        
-        }, this._setTimeout);
+     */   
+    public flashOnce(): void{
+        if(this.isShown)
+        {
+            //message is already visible, do nothing
+            this._alreadyVisible.emit();
+        }
+        else
+        {          
+            this._onStartVisible.emit();
+            this.isShown=true;
+            setTimeout(()=>{               
+                this._onEndVisible.emit();
+                setTimeout(()=>{                   
+                    this._onStartHidden.emit();
+                    this.isShown=false;
+                    setTimeout(()=>{                       
+                        this._onEndHidden.emit();
+                    }, 500);
+                }, this._setTimeout);
+            }, 500);
+        }                
     }
     /**
      * Use this method to show message.
      * Message will be visible until hide() method is called.
      */
     public show(): void{
-        this.isShown=false;
+        if(this.isShown || this.intervalCounter!=0)
+        {
+            //message is already visible or blinking, do nothing
+            this._alreadyVisible.emit();
+        }
+        else{
+            this._onStartVisible.emit();
+            this.isShown=true;
+            setTimeout(()=>{
+                this._onEndVisible.emit();
+            }, 500);
+        }
     }
     /**
      * Use this method to hide message.
      * Message will be hidden until show() method is called.
      */
     public hide(): void{
-         this.isShown=true;
+        if(!this.isShown || this.intervalCounter!=0)
+        {
+            //message is already hidden or blinking, do nothing 
+            this._alreadyHidden.emit();
+        }
+        else
+        {
+            this._onStartHidden.emit();
+            this.isShown=false;
+            setTimeout(()=>{
+                this._onEndHidden.emit();
+            },500);
+        };       
     }
     /**
      * Use this method to start message flashing.
      * Message will be flashing until stopFlashing() method is called.
      */
     public startFlashing(): void{
-        //if already blinking do nothing
-        if(this.intervalCounter!=0) return;
+        //if already blinking or shown do nothing
+        //message must be hidden to start flashing
+        if(this.intervalCounter!=0 || this.isShown) return;
 
-        this.isShown=!this.isShown;
+        this.show();
 
         this.intervalCounter=setInterval(()=> {            
-            this.isShown=!this.isShown;        
+           this.toggle();      
         }, this._setTimeout);
     }
     /**
