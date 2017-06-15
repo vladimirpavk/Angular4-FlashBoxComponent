@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/rx';
 
 let __moduleName: any;
 
@@ -15,6 +15,7 @@ export class FlashBoxComponent implements OnInit{
     //counter handler
     private intervalCounter: number = 0;
     private _timeOutCounter: number = 0;
+    private _intervalCounterHandler: Observable<number>;
 
     //emit when message start showing up
     private _onStartVisible = new EventEmitter();
@@ -260,18 +261,21 @@ export class FlashBoxComponent implements OnInit{
         }
         
         console.log("Start Flashing");
-        this.show();
+        /*this.show();
         setTimeout(()=>{
             this.intervalCounter=setInterval(()=>this.toggle(), this._setTimeout);
-        },2500);        
+        }, 2600);        */        
+        this._intervalCounterHandler=Observable.timer(0, parseInt(this._setTimeout)+1000);
+        this._intervalCounterHandler.subscribe((num)=>{
+            this.toggle();
+        });
     }
     /**
      * Use this method to stop message flashing.
      * Message will be stopped until startFlashing() method is called.
      */
     public stopFlashing(): void{       
-        //this._onEndHidden.
-        this.isShown=false;
+         this._intervalCounterHandler.
     }
 
     /**
