@@ -208,10 +208,9 @@ export class FlashBoxComponent implements OnInit{
      * Use this method to show flashbox.
      * Flashbox will be visible until hide() method is called.
      */
-    public show(): void{      
-        console.error("FlashBox component is already shown");
+    public show(): void{              
         if(this.isShown){    
-                                   
+            console.error("FlashBox component is already shown");                                   
             this._busy.emit();
             return;
         }            
