@@ -17,5 +17,4 @@ System.register(["@angular/platform-browser-dynamic", "./app.module"], function 
         }
     };
 });
-
 //# sourceMappingURL=main.js.map
