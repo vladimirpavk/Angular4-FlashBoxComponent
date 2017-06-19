@@ -1,5 +1,5 @@
 <h1>Angular 4.0.1</h1>
-<h1>FlashBoxComponent 0.2.0</h1>
+<h1>FlashBoxComponent 0.2.2</h1>
 
 <!--
 <button (click)="Button_clicked()"> Pritisni me </button>
@@ -61,6 +61,10 @@
 <button (click)="bm1.startFlashing()">Start flashing</button>
 <button (click)="bm1.stopFlashing()">Stop flashing</button>
 <button (click)="bm1.flashOnce()">Flash once</button>
+<br>
+<label>Enter number of times to flash: </label>
+<input type="number" #numOfTimes /> 
+<button (click)="bm1.flashTimes(numOfTimes.value)">Flash times</button>
 <br>
 
 <flash-box [type]="select_type.value" [position]="select_position.value" max-width="300px" setTimeout=2000 #bm1>

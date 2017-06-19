@@ -19,6 +19,8 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){      
-  } 
+  }
+
+  private fb1: FlashBoxComponent;
 
 }
