@@ -9,8 +9,7 @@
       //use bottom line for local repositories
       //'npm:': 'node_modules/'
       //use bottom line for online repositories
-      'npm:': 'https://unpkg.com/',
-      'npm_local': 'node_modules/'
+      'npm:': 'https://unpkg.com/'
     },
     // map tells the System loader where to look for things
     map: {
@@ -23,7 +22,7 @@
       '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
       '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
       'rxjs': 'npm:rxjs',
-      'ng2-flashbox': 'node_modules/ng2-flashbox/index.js'
+      'ng2-flashbox': 'npm:ng2-flashbox@0.2.2/index.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
