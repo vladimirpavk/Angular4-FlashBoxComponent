@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Observable, Subscription } from 'rxjs/rx';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 let __moduleName: any;
 
