@@ -23,8 +23,8 @@
       '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
       '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
       'rxjs': 'npm:rxjs',
-      'ng2-flashbox': 'npm_local:ng2-flashbox/index.js'
-      //'ng2-flashbox': 'npm:ng2-flashbox/index.js'
+      //'ng2-flashbox': 'npm_local:ng2-flashbox/index.js'
+      'ng2-flashbox': 'npm:ng2-flashbox/index.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
