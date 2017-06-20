@@ -10,7 +10,7 @@
       //'npm:': 'node_modules/'
       //use bottom line for online repositories
       'npm:': 'https://unpkg.com/',
-      'npm_local': 'node_modules/'      
+      'npm_local': 'docs/node_modules/'      
     },
     // map tells the System loader where to look for things
     map: {
