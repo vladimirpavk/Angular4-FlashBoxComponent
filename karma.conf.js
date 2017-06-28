@@ -4,11 +4,11 @@ module.exports = function(config) {
   var appSrcBase = appBase;      // app source TS files
 
   // Testing helpers (optional) are conventionally in a folder called `testing`
-  var testingBase    = 'testing'; // transpiled test JS and map files
+  var testingBase    = 'testing/'; // transpiled test JS and map files
   var testingSrcBase = testingBase; // test source TS files
 
   config.set({
-    basePath: '',
+    basePath: './',
     frameworks: ['jasmine'],
 
     plugins: [
@@ -46,6 +46,8 @@ module.exports = function(config) {
       'node_modules/zone.js/dist/jasmine-patch.js',
       'node_modules/zone.js/dist/async-test.js',
       'node_modules/zone.js/dist/fake-async-test.js',
+      //spec files
+      testingBase+'components/*.component.spec.js',
 
       // RxJs
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
@@ -57,7 +59,7 @@ module.exports = function(config) {
       { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false },
 
       { pattern: appBase + '/systemjs.config.js', included: false, watched: false },      
-      'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
+      //'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
 
       // transpiled application & spec code paths loaded via module imports
       { pattern: appBase + '**/*.js', included: false, watched: true },
