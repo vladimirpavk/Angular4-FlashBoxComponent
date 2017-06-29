@@ -6,4 +6,8 @@
 /server/**/*.js
 /server/**/*.map
 
+/testing/**/*.js
+/testing/**/*.map
+/testing/**/*.d.ts
+
 npm-debug*
