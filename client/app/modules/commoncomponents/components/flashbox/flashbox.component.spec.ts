@@ -1,8 +1,9 @@
 ///<reference path="../../../../../../node_modules/@types/jasmine/index.d.ts" />
 
-/*describe('1st tests', () => {
+describe('1st tests', () => {
   it('true is true', () => expect(true).toBe(true));
-});*/
+});
+/*
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -23,4 +24,4 @@ describe('FlashBoxComponent', ()=>{
         component=fixture.componentInstance;        
 
     });
-})
+})*/

@@ -33,8 +33,9 @@ module.exports = function(config) {
 
     files: [
       // System.js for module loading
+      'node_modules/typescript/lib/typescript.js',
       'node_modules/systemjs/dist/system.src.js',
-      /*
+      
       // Polyfills
       'node_modules/core-js/client/shim.js',
 
@@ -48,10 +49,7 @@ module.exports = function(config) {
       'node_modules/zone.js/dist/fake-async-test.js',
 
       //reflect-metadata
-      'node_modules/reflect-metadata/Reflect.js',*/
-
-      //spec files
-      appBase+'**/*.component.spec.js',
+      'node_modules/reflect-metadata/Reflect.js',    
 
       // RxJs
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
@@ -67,7 +65,7 @@ module.exports = function(config) {
 
       // transpiled application & spec code paths loaded via module imports
       { pattern: appBase + '**/*.js', included: false, watched: true },
-      //{ pattern: testingBase + '**/*.spec.js', included: false, watched: true },
+      { pattern: appBase + '**/*.spec.js', included: false, watched: true },
 
 
       // Asset (HTML & CSS) paths loaded via Angular's component compiler
@@ -77,7 +75,9 @@ module.exports = function(config) {
 
       // Paths for debugging with source maps in dev tools
       { pattern: appBase + '**/*.ts', included: false, watched: false },
-      { pattern: appBase + '**/*.js.map', included: false, watched: false },
+      { pattern: appBase + '**/*.js.map', included: false, watched: false }
+        //spec files
+     // appBase+'**/*.component.spec.js',
       //{ pattern: testingSrcBase + '**/*.spec.ts', included: false, watched: false },
       //{ pattern: testingBase + '**/*.spec.js.map', included: false, watched: false}
     ],
