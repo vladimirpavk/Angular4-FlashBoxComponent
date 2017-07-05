@@ -60,13 +60,13 @@ module.exports = function(config) {
       { pattern: 'node_modules/@angular/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false },
 
-      { pattern: appBase + '/systemjs.config.js', included: false, watched: false },      
+      { pattern: appBase + '/systemjs.config.js', included: true, watched: false },      
       //'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
 
       // transpiled application & spec code paths loaded via module imports
-      { pattern: appBase + '**/*.js', included: false, watched: true },
-      { pattern: appBase + '**/*.spec.js', included: false, watched: true },
-
+      //{ pattern: appBase + '**/*.js', included: false, watched: true },
+      //{ pattern: appBase + 'app/modules/commoncomponents/components/flashbox/*.spec.js', included: true, watched: true },
+      { pattern: appBase + '**/*.spec.js', included: true, watched: true },
 
       // Asset (HTML & CSS) paths loaded via Angular's component compiler
       // (these paths need to be rewritten, see proxies section)
@@ -75,11 +75,7 @@ module.exports = function(config) {
 
       // Paths for debugging with source maps in dev tools
       { pattern: appBase + '**/*.ts', included: false, watched: false },
-      { pattern: appBase + '**/*.js.map', included: false, watched: false }
-        //spec files
-     // appBase+'**/*.component.spec.js',
-      //{ pattern: testingSrcBase + '**/*.spec.ts', included: false, watched: false },
-      //{ pattern: testingBase + '**/*.spec.js.map', included: false, watched: false}
+      { pattern: appBase + '**/*.js.map', included: false, watched: false }      
     ],
 
     // Proxied base paths for loading assets
