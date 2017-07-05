@@ -8,7 +8,7 @@ module.exports = function(config) {
   var testingSrcBase = testingBase; // test source TS files
 
   config.set({
-    basePath: './',
+    basePath: '.',
     frameworks: ['jasmine'],
 
     plugins: [
@@ -60,13 +60,12 @@ module.exports = function(config) {
       { pattern: 'node_modules/@angular/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false },
 
-      { pattern: appBase + '/systemjs.config.js', included: true, watched: false },      
-      //'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
+      { pattern: appBase + '/systemjs.config.js', included: false, watched: false },      
+      'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
 
       // transpiled application & spec code paths loaded via module imports
-      //{ pattern: appBase + '**/*.js', included: false, watched: true },
-      //{ pattern: appBase + 'app/modules/commoncomponents/components/flashbox/*.spec.js', included: true, watched: true },
-      { pattern: appBase + '**/*.spec.js', included: true, watched: true },
+      { pattern: appBase + '**/*.js', included: false, watched: true },      
+      { pattern: appBase + '**/*.spec.js', included: false, watched: true },
 
       // Asset (HTML & CSS) paths loaded via Angular's component compiler
       // (these paths need to be rewritten, see proxies section)
@@ -81,7 +80,7 @@ module.exports = function(config) {
     // Proxied base paths for loading assets
     proxies: {
       // required for modules fetched by SystemJS
-      '/base/src/node_modules/': '/base/node_modules/'
+      '/base/src/node_modules/': 'node_modules'
     },
 
     exclude: [],
