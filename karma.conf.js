@@ -1,6 +1,6 @@
 module.exports = function(config) {
 
-  var appBase    = 'client/';       // transpiled app JS and map files
+  var appBase    = 'app/';       // transpiled app JS and map files
   var appSrcBase = appBase;      // app source TS files
 
   // Testing helpers (optional) are conventionally in a folder called `testing`
@@ -8,7 +8,7 @@ module.exports = function(config) {
   var testingSrcBase = testingBase; // test source TS files
 
   config.set({
-    basePath: '.',
+    basePath: 'client/',
     frameworks: ['jasmine'],
 
     plugins: [
@@ -60,7 +60,7 @@ module.exports = function(config) {
       { pattern: 'node_modules/@angular/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false },
 
-      { pattern: appBase + '/systemjs.config.js', included: false, watched: false },      
+      { pattern: appBase + '/systemjs.config.js', included: false, watched: true },      
       'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
 
       // transpiled application & spec code paths loaded via module imports
@@ -73,15 +73,15 @@ module.exports = function(config) {
       { pattern: appBase + '**/*.css', included: false, watched: true },
 
       // Paths for debugging with source maps in dev tools
-      { pattern: appBase + '**/*.ts', included: false, watched: false },
-      { pattern: appBase + '**/*.js.map', included: false, watched: false }      
+      { pattern: appBase + '**/*.ts', included: false, watched: false }//,
+      //{ pattern: appBase + '**/*.js.map', included: false, watched: false }      
     ],
 
     // Proxied base paths for loading assets
-    proxies: {
+    /*proxies: {
       // required for modules fetched by SystemJS
-      '/base/src/node_modules/': 'node_modules'
-    },
+      '/base/src/node_modules/': './node_modules'
+    },*/
 
     exclude: [],
     preprocessors: {},

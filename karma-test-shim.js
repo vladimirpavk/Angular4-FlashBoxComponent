@@ -37,7 +37,7 @@ System.config({
   // Base URL for System.js calls. 'base/' is where Karma serves files from.
   baseURL: '',
   // Extend usual application package list with test folder
-  packages: { 'testing': { main: 'index.js', defaultExtension: 'js' } },
+  //packages: { 'testing': { main: 'index.js', defaultExtension: 'js' } },
 
   // Assume npm: is set in `paths` in systemjs.config
   // Map the angular testing umd bundles
@@ -53,12 +53,12 @@ System.config({
   },
 });
 
-System.import('base/client/systemjs.config.js') //base is basePath from karma.config.js
+System.import('systemjs.config.js') //base is basePath from karma.config.js
   .then(initTestBed)
   .then(initTesting);
 
 /** Optional SystemJS configuration extras. Keep going w/o it */
-function importSystemJsExtras(){
+/*function importSystemJsExtras(){
   return System.import('systemjs.config.extras.js')
   .catch(function(reason) {
     console.log(
@@ -66,7 +66,7 @@ function importSystemJsExtras(){
     );
     console.log(reason);
   });
-}
+}*/
 
 function initTestBed(){
   return Promise.all([
