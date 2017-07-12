@@ -53,7 +53,7 @@ System.config({
   },
 });
 
-System.import('systemjs.config.js') //base is basePath from karma.config.js
+System.import('base/client/systemjs.config.js') //base is basePath from karma.config.js
   .then(initTestBed)
   .then(initTesting);
 

@@ -1,6 +1,6 @@
 module.exports = function(config) {
 
-  var appBase    = 'app/';       // transpiled app JS and map files
+  var appBase    = 'client/';       // transpiled app JS and map files
   var appSrcBase = appBase;      // app source TS files
 
   // Testing helpers (optional) are conventionally in a folder called `testing`
@@ -8,7 +8,7 @@ module.exports = function(config) {
   var testingSrcBase = testingBase; // test source TS files
 
   config.set({
-    basePath: 'client/',
+    basePath: '',
     frameworks: ['jasmine'],
 
     plugins: [
