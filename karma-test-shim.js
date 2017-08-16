@@ -35,7 +35,7 @@ var allSpecFiles = Object.keys(window.__karma__.files)
 
 System.config({
   // Base URL for System.js calls. 'base/' is where Karma serves files from.
-  baseURL: '',
+  baseURL: '/base/client/',
   // Extend usual application package list with test folder
   //packages: { 'testing': { main: 'index.js', defaultExtension: 'js' } },
 
@@ -49,20 +49,11 @@ System.config({
     '@angular/platform-browser-dynamic/testing': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
     '@angular/http/testing': 'npm:@angular/http/bundles/http-testing.umd.js',
     '@angular/router/testing': 'npm:@angular/router/bundles/router-testing.umd.js',
-    '@angular/forms/testing': 'npm:@angular/forms/bundles/forms-testing.umd.js'
-
-    /*'@angular/core/testing': 'base/node_modules/@angular/core/bundles/core-testing.umd.js',
-    '@angular/common/testing': 'base/node_modules/@angular/common/bundles/common-testing.umd.js',
-    '@angular/compiler/testing': 'base/node_modules/@angular/compiler/bundles/compiler-testing.umd.js',
-    '@angular/platform-browser/testing': 'base/node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js',
-    '@angular/platform-browser-dynamic/testing': 'base/node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
-    '@angular/http/testing': 'base/node_modules/@angular/http/bundles/http-testing.umd.js',
-    '@angular/router/testing': 'base/node_modules/@angular/router/bundles/router-testing.umd.js',
-    '@angular/forms/testing': 'base/node_modules/@angular/forms/bundles/forms-testing.umd.js'*/
+    '@angular/forms/testing': 'npm:@angular/forms/bundles/forms-testing.umd.js',
   },
 });
 
-System.import('base/client/systemjs.config.js')
+System.import('systemjs.config.js')
   .then(initTestBed)
   .then(initTesting);
 

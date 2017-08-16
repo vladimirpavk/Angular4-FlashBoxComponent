@@ -9,6 +9,11 @@ module.exports = function(config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter')
     ],
+
+    client: {
+      buildPaths: ['client/'],
+      clearContext: false
+    },
   
     customLaunchers: {
       // From the CLI. Not used here but interesting
@@ -20,8 +25,7 @@ module.exports = function(config) {
     },
 
     files: [
-      // System.js for module loading
-      'node_modules/typescript/lib/typescript.js',
+      // System.js for module loading     
       'node_modules/systemjs/dist/system.src.js',
       
       // Polyfills
@@ -37,7 +41,7 @@ module.exports = function(config) {
       'node_modules/zone.js/dist/fake-async-test.js',
 
       //reflect-metadata
-      'node_modules/reflect-metadata/Reflect.js',    
+      //'node_modules/reflect-metadata/Reflect.js',    
 
       // RxJs
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
@@ -48,12 +52,12 @@ module.exports = function(config) {
       { pattern: 'node_modules/@angular/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false },
 
-      { pattern: 'client/systemjs.config.js', included: false, watched: true },      
+      { pattern: 'client/systemjs.config.js', included: false, watched: false },      
       'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
 
       // transpiled application & spec code paths loaded via module imports
-      { pattern: 'client/ap/modules/commoncomponents/components/flashbox/1.spec.*', included: false, watched: true},
-      { pattern: 'cliet/**/*.spec.js', included: false, watched: true},
+      //{ pattern: 'client/app/modules/commoncomponents/components/flashbox/1.spec.*', included: false, watched: true},
+      //{ pattern: 'client/**/*.spec.js', included: false, watched: true},
       { pattern: 'client/**/*.js', included: false, watched: true },            
 
       // Asset (HTML & CSS) paths loaded via Angular's component compiler
@@ -69,7 +73,7 @@ module.exports = function(config) {
     // Proxied base paths for loading assets
     proxies: {
       // required for modules fetched by SystemJS
-      '/node_module/': '/base/node_modules/'
+      '/base/client/node_modules/': '/base/node_modules/'
     },
 
     exclude: [],
