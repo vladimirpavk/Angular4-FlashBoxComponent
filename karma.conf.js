@@ -56,9 +56,9 @@ module.exports = function(config) {
       'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
 
       // transpiled application & spec code paths loaded via module imports
-      { pattern: 'client/app/modules/commoncomponents/components/flashbox/1.spec.js', included: false, watched: true},
-      //{ pattern: 'client/**/*.spec.js', included: false, watched: true},
-      { pattern: 'client/**/*.js', included: false, watched: true },            
+      //{ pattern: 'client/app/modules/commoncomponents/components/flashbox/1.spec.js', included: false, watched: true},
+      { pattern: 'client/**/*.spec.js', included: true, watched: true},
+      { pattern: 'client/**/*.js', included: true, watched: true },            
 
       // Asset (HTML & CSS) paths loaded via Angular's component compiler
       // (these paths need to be rewritten, see proxies section)

@@ -5,7 +5,7 @@
   "scripts": {
     "start_server": "node ./server/index.js",
     "preinstall": "npm install",
-    "test:build": "tsc -p testing/components/",
+    "test:build": "tsc -p ./client/app",
     "test:build:watch": "tsc -p ./client/app -w",
     "test:once": "karma start karma.conf.js --single-run",
     "test": "concurrently \"npm run test:build:watch\" \"karma start karma.conf.js\""
