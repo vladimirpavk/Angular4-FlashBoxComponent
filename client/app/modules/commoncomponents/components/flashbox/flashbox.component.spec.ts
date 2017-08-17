@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { FlashBoxComponent } from './flashbox.component';
 
-describe('FlashBoxComponent', ()=>{
+describe('FlashBoxComponent first test', ()=>{
     let component: FlashBoxComponent;
     let fixture: ComponentFixture<FlashBoxComponent>;
 

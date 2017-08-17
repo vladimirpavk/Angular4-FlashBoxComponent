@@ -71,7 +71,8 @@ System.import('systemjs.config.js')
 function initTestBed(){
   return Promise.all([
     System.import('@angular/core/testing'),
-    System.import('@angular/platform-browser-dynamic/testing')
+    System.import('@angular/platform-browser-dynamic/testing'),
+    System.import('app/modules/commoncomponents/components/flashbox/flashbox.component.spec')
   ])
 
   .then(function (providers) {
