@@ -35,7 +35,7 @@ var allSpecFiles = Object.keys(window.__karma__.files)
 
 System.config({
   // Base URL for System.js calls. 'base/' is where Karma serves files from.
-  baseURL: '/base/client/',
+  baseURL: 'base',
   // Extend usual application package list with test folder
   //packages: { 'testing': { main: 'index.js', defaultExtension: 'js' } },
 
@@ -53,7 +53,7 @@ System.config({
   },
 });
 
-System.import('systemjs.config.js')
+System.import('client/systemjs.config.js')
   .then(initTestBed)
   .then(initTesting);
 
@@ -72,7 +72,6 @@ function initTestBed(){
   return Promise.all([
     System.import('@angular/core/testing'),
     System.import('@angular/platform-browser-dynamic/testing'),
-    System.import('app/modules/commoncomponents/components/flashbox/flashbox.component.spec')
   ])
 
   .then(function (providers) {
