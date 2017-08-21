@@ -26,14 +26,14 @@ export class ServerApp {
     }
 
     private _renderModule(req: express.Request, res: express.Response){
-        console.log("From render module: "+'../node_modules/'+req.params[0]);
+        //console.log("From render module: "+'../node_modules/'+req.params[0]);
         res.sendFile(path.resolve(__dirname, '../node_modules/'+req.params[0]));
     }
 
 
     private _renderPage(req: express.Request, res: express.Response){ 
         //console.log("/ route requested...");       
-        //console.log(req.params[0]);        
+        console.log(req.params[0]);        
         res.sendFile(path.resolve(__dirname, '../client/'+req.params[0]));
         //res.sendFile(req.params[0]);
     }
