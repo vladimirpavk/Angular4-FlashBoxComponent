@@ -1,10 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs/Rx';
 
-let __moduleName: any;
-
 @Component({
-    moduleId: __moduleName,
+    moduleId: module.id, //for commonjs pak
     selector: 'flash-box',    
     templateUrl: 'flashbox.component.html',
     styleUrls: ['flashbox.component.css']
