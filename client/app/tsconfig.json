@@ -1,4 +1,4 @@
-{
+/*{
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
@@ -10,9 +10,9 @@
     "noImplicitAny": false,
     "declaration": true
   }   
-}
+}*/
 
-/*{
+{
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
@@ -24,4 +24,4 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   }
-}*/
+}

@@ -40,7 +40,7 @@ module.exports = function(config) {
 
       { pattern: 'client/systemjs.config.js', included: false, watched: false },      
       'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
-
+      
       // transpiled application & spec code paths loaded via module imports
       { pattern: 'client/**/*.js', included: false, watched: true },            
       // Paths for debugging with source maps in dev tools

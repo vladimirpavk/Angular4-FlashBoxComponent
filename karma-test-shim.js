@@ -29,9 +29,13 @@ function isBuiltFile(path) {
          }, false);
 }
 
+//console.log(window.__karma__.files);
+
 var allSpecFiles = Object.keys(window.__karma__.files)
-  .filter(isSpecFile)
-  .filter(isBuiltFile);
+  .filter(isSpecFile);
+  //.filter(isBuiltFile);
+
+console.log(allSpecFiles);
 
 System.config({
   // Base URL for System.js calls. 'base/' is where Karma serves files from.
