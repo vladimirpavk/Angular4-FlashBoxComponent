@@ -8,6 +8,7 @@ import { FlashBoxComponent } from './flashbox.component.js';
 describe('FlashBoxComponent first test', ()=>{
     let component: FlashBoxComponent;
     let fixture: ComponentFixture<FlashBoxComponent>;
+    let debugElement: DebugElement;
 
     beforeEach(()=>{
         TestBed.configureTestingModule({
@@ -15,7 +16,8 @@ describe('FlashBoxComponent first test', ()=>{
         });
 
         fixture=TestBed.createComponent(FlashBoxComponent);
-        component=fixture.componentInstance;        
+        component=fixture.componentInstance;   
+        debugElement=fixture.debugElement;     
 
     });
 });
