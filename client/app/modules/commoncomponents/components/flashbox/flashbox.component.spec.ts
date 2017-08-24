@@ -1,5 +1,5 @@
 ///<reference path="../../../../../../node_modules/@types/jasmine/index.d.ts" />
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
@@ -10,14 +10,19 @@ describe('FlashBoxComponent first test', ()=>{
     let fixture: ComponentFixture<FlashBoxComponent>;
     let debugElement: DebugElement;
 
-    beforeEach(()=>{
+    beforeEach(async(()=>{
         TestBed.configureTestingModule({
             declarations: [FlashBoxComponent]
-        });
+        }).compileComponents();
+     }));   
 
+    beforeEach(()=>{
         fixture=TestBed.createComponent(FlashBoxComponent);
         component=fixture.componentInstance;   
-        debugElement=fixture.debugElement;     
+        debugElement=fixture.debugElement;
 
+        console.log(debugElement);     
     });
+    
+    it('true is true', () => expect(true).toBe(true));
 });
