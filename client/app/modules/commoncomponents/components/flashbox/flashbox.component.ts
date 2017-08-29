@@ -26,6 +26,14 @@ export class FlashBoxComponent implements OnInit{
     @Output("busyEvent") _busy = new EventEmitter();
     //setTimeout value must be greater than 0
     @Output("invalidValueEvent") _invalidValue = new EventEmitter();
+    //emit when control type change
+    @Output("typeChangedEvent") _typeChanged = new EventEmitter();
+    //emit when control position change
+    @Output("positionChangedEvent") _positionChanged = new EventEmitter();
+    //emit when control maxwidth change
+    @Output("maxWidthChangedEvent") _maxWidthChanged = new EventEmitter();
+    //emit when control timeout change
+    @Output("timeoutChangedEvent") _timeoutChanged = new EventEmitter();
 
     private _type: string = "primary";
     /**
@@ -36,7 +44,8 @@ export class FlashBoxComponent implements OnInit{
      */
     @Input("type")
     set type(value: string){
-        this._type= value;
+        this._type = value;
+        this._typeChanged.emit(value);
         this.setType();
     }
    
@@ -57,7 +66,8 @@ export class FlashBoxComponent implements OnInit{
      */
     @Input("position")
     set position(value: string){
-        this._position= value;
+        this._position = value;
+        this._positionChanged.emit(value);
         this.setPosition();
     }
     
@@ -68,7 +78,8 @@ export class FlashBoxComponent implements OnInit{
      */
     @Input("maxwidth")
     set maxwidth(value: string){
-        this._maxwidth= value;
+        this._maxwidth = value;
+        this._maxWidthChanged.emit(value);
     }
     
     private _setTimeout: number = 2000;    
@@ -77,7 +88,8 @@ export class FlashBoxComponent implements OnInit{
      */
     @Input("setTimeout")
     set setTimeout(value : number){
-        this._setTimeout= value;      
+        this._setTimeout = value;
+        this._timeoutChanged.emit(value);      
     }
 
     private style_type: boolean[] = [false, false, false, false, false, false];
