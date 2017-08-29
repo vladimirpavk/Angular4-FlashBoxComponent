@@ -27,13 +27,13 @@ export class FlashBoxComponent implements OnInit{
     //setTimeout value must be greater than 0
     @Output("invalidValueEvent") _invalidValue = new EventEmitter();
     //emit when control type change
-    @Output("typeChangedEvent") _typeChanged = new EventEmitter();
+    @Output("onTypeChangedEvent") _typeChanged = new EventEmitter();
     //emit when control position change
-    @Output("positionChangedEvent") _positionChanged = new EventEmitter();
+    @Output("onPositionChangedEvent") _positionChanged = new EventEmitter();
     //emit when control maxwidth change
-    @Output("maxWidthChangedEvent") _maxWidthChanged = new EventEmitter();
+    @Output("onMaxWidthChangedEvent") _maxWidthChanged = new EventEmitter();
     //emit when control timeout change
-    @Output("timeoutChangedEvent") _timeoutChanged = new EventEmitter();
+    @Output("onTimeoutChangedEvent") _timeoutChanged = new EventEmitter();
 
     private _type: string = "primary";
     /**

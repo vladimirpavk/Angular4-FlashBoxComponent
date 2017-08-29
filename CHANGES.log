@@ -2,3 +2,10 @@
 
 changed gulpfile.js, added favourite browser,
 app.component.ts: removed unneccessary imports
+
+0.2.6
+Added events:
+**onTypeChangedEvent** - fires when you change **type** property of the control.
+**onPositionChangedEvent** - fires when you change **position** property of the control.
+**onMaxWidthChangedEvent** - fires when you change **maxwidth** property of the control.
+**onTimeoutChangedEvent** - fires when you change **setTimeout** property of the control. 

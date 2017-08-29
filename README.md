@@ -134,7 +134,7 @@ Transition period from unvisible to visible is set to **0,5 sec** and is current
 6. **toogle():void** - Toggle show/hide control
 7. **flashTimes(number numOfTimes):void** -Show flashBox **numOfTimes** times
 
-###Events
+#### **Events**:
 1. **busyEvent** - fires when flashbox is busy. 
     When show() on flashbox that is already shown.
     When hide() on flashbox that is already hidden.
@@ -146,4 +146,7 @@ Transition period from unvisible to visible is set to **0,5 sec** and is current
 4. **onStartHiddenEvent** - fires when flashbox is starting to become unvisible.
 5. **onEndHiddenEvent** - fires when flashbox is completely invisible.
 6. **invalidValueEvent** - fires when **setTimeout** to number that is less or equal 0.
-
+7. **onTypeChangedEvent** - fires when you change **type** property of the control.
+8. **onPositionChangedEvent** - fires when you change **position** property of the control.
+9. **onMaxWidthChangedEvent** - fires when you change **maxwidth** property of the control.
+10. **onTimeoutChangedEvent** - fires when you change **setTimeout** property of the control. 
