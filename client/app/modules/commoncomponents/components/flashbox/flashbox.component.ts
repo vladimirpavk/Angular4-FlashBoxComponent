@@ -27,13 +27,13 @@ export class FlashBoxComponent implements OnInit{
     //setTimeout value must be greater than 0
     @Output("invalidValueEvent") _invalidValue = new EventEmitter();
     //emit when control type change
-    @Output("onTypeChangedEvent") _typeChanged = new EventEmitter();
+    @Output("onTypeChangedEvent") _typeChanged = new EventEmitter<string>();
     //emit when control position change
-    @Output("onPositionChangedEvent") _positionChanged = new EventEmitter();
+    @Output("onPositionChangedEvent") _positionChanged = new EventEmitter<string>();
     //emit when control maxwidth change
-    @Output("onMaxWidthChangedEvent") _maxWidthChanged = new EventEmitter();
+    @Output("onMaxWidthChangedEvent") _maxWidthChanged = new EventEmitter<number>();
     //emit when control timeout change
-    @Output("onTimeoutChangedEvent") _timeoutChanged = new EventEmitter();
+    @Output("onTimeoutChangedEvent") _timeoutChanged = new EventEmitter<number>();
 
     private _type: string = "primary";
     /**
@@ -71,13 +71,13 @@ export class FlashBoxComponent implements OnInit{
         this.setPosition();
     }
     
-    private _maxwidth: string = "300px";
+    private _maxwidth: number = 300;
     /**
      * Specify flashbox maximum width.
      * Default value is 300 px.
      */
     @Input("maxwidth")
-    set maxwidth(value: string){
+    set maxwidth(value: number){
         this._maxwidth = value;
         this._maxWidthChanged.emit(value);
     }
@@ -267,7 +267,8 @@ export class FlashBoxComponent implements OnInit{
             return;
         }            
                              
-        this._intervalCounterHandler=Observable.timer(0, parseInt(this._setTimeout)+1000);        
+        //this._intervalCounterHandler=Observable.timer(0, parseInt(this._setTimeout)+1000);
+        this._intervalCounterHandler=Observable.timer(0, this._setTimeout+1000);        
         this._intervalCounterObserver=this._intervalCounterHandler.subscribe((num)=>{
             this.toggle();
         });           
@@ -300,7 +301,8 @@ export class FlashBoxComponent implements OnInit{
             return;
         }            
 
-        this._intervalCounterHandler=Observable.timer(0, parseInt(this._setTimeout)+1000);        
+        //this._intervalCounterHandler=Observable.timer(0, parseInt(this._setTimeout)+1000);
+        this._intervalCounterHandler=Observable.timer(0, this._setTimeout+1000);       
         this._intervalCounterObserver=this._intervalCounterHandler.subscribe((num)=>{
             if(num != times*2){
                // console.log(num);
