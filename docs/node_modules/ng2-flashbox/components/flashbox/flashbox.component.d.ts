@@ -9,6 +9,10 @@ export declare class FlashBoxComponent implements OnInit {
     private _onEndHidden;
     _busy: EventEmitter<{}>;
     _invalidValue: EventEmitter<{}>;
+    _typeChanged: EventEmitter<string>;
+    _positionChanged: EventEmitter<string>;
+    _maxWidthChanged: EventEmitter<number>;
+    _timeoutChanged: EventEmitter<number>;
     private _type;
     /**
      * Set type of flashbox.
@@ -38,7 +42,7 @@ export declare class FlashBoxComponent implements OnInit {
      * Specify flashbox maximum width.
      * Default value is 300 px.
      */
-    maxwidth: string;
+    maxwidth: number;
     private _setTimeout;
     /**
      * Specify the amount of time flashbox is visible in ms. Default value is 2000ms.
