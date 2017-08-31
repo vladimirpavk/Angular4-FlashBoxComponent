@@ -126,7 +126,7 @@ export class FlashBoxComponent implements OnInit{
             console.log("Timeout changed to :"+new_val);
         });*/
 
-        console.log("FlashBoxComponent v0.2.1")
+        console.log("FlashBoxComponent v0.2.6")
     }
 
     ngOnInit(){
