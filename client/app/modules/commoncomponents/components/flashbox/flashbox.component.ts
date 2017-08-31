@@ -112,7 +112,20 @@ export class FlashBoxComponent implements OnInit{
             console.log("_onEndHidden event fired");      
         this._busy.subscribe(()=>{
             console.log("_busy event fired");
-        });*/        
+        });
+        this._typeChanged.subscribe((new_val:any)=>{
+            console.log("Type changed to: "+new_val);
+        });
+        this._positionChanged.subscribe((new_val:any)=>{
+            console.log("Position changed to :"+new_val);
+        });
+        this._maxWidthChanged.subscribe((new_val:any)=>{
+            console.log("Max width changed to :"+new_val);
+        });
+        this._timeoutChanged.subscribe((new_val:any)=>{
+            console.log("Timeout changed to :"+new_val);
+        });*/
+
         console.log("FlashBoxComponent v0.2.1")
     }
 

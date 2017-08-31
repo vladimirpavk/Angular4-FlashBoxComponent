@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FlashBoxComponent } from './modules/commoncomponents/components/flashbox/flashbox.component';
 
-
 @Component({
   moduleId: module.id,
   selector: 'my-app',
