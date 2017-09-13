@@ -29,10 +29,11 @@
     "@angular/upgrade": "^4.0.1"
   },
   "devDependencies": {
+    "@types/express": "^4.0.37",
     "@types/jasmine": "^2.5.53",
     "browser-sync": "^2.16.0",
     "concurrently": "^3.5.0",
-    "express": "^4.14.0",
+    "express": "^4.15.4",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-nodemon": "^2.2.1",
@@ -44,8 +45,7 @@
     "karma-jasmine": ">=1.1.0",
     "karma-jasmine-html-reporter": ">=0.2.2",
     "path": "^0.12.7",
-    "typescript": "^2.3.0",
-    "typings": "^2.1.0"
+    "typescript": "^2.3.0"
   },
   "keywords": [
     "Node",
