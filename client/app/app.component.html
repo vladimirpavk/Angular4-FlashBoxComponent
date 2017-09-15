@@ -1,4 +1,4 @@
-<h1>Angular 4.0.1</h1>
+<h1>Angular 4.3.6</h1>
 <h1>FlashBoxComponent 0.2.6</h1>
 
 <!--
@@ -63,15 +63,15 @@
 <button (click)="bm1.flashOnce()">Flash once</button>
 <br>
 <label>Enter number of times to flash: </label>
-<input type="number" #numOfTimes /> 
+<input type="number" #numOfTimes />
 <button (click)="bm1.flashTimes(numOfTimes.value)">Flash times</button>
 <br>
 
 <flash-box [type]="select_type.value" [position]="select_position.value" [maxwidth]=300 [setTimeout]=2000 #bm1>
-   <div style="border-type: solid; border-width:2px">
-       <label style="color: rgb(0,0,0); text-decoration: underline;">Information message</label>
-   </div>
-   <label>
+    <div style="border-type: solid; border-width:2px">
+        <label style="color: rgb(0,0,0); text-decoration: underline;">Information message</label>
+    </div>
+    <label>
        User successfully deleted...
    </label>
 </flash-box>
