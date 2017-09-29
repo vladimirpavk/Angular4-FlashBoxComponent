@@ -2,7 +2,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
-import { CommonComponentsModule } from './modules/commoncomponents/commoncomponents.module';
+import { CommonComponentsModule } from 'ng2-flashbox';
 
 @NgModule({
   imports:      [ 
