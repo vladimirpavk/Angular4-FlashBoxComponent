@@ -126,13 +126,21 @@ export class FlashBoxComponent implements OnInit{
             console.log("Timeout changed to :"+new_val);
         });*/
 
-        console.log("FlashBoxComponent v0.2.6")
+        //console.log("FlashBoxComponent v0.2.6");
     }
 
     ngOnInit(){
         this.setType();
         this.setPosition();
     }    
+
+    private _version: string  ="0.2.10";
+    /**
+     * Use this method to retrieve the current control version
+     */
+    private version(): string{
+        return this._version;
+    }
 
     private setType(): void{
         switch(this._type){

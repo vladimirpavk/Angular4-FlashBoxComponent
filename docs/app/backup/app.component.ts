@@ -1,8 +1,11 @@
+let __moduleName: any;
+
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { FlashBoxComponent } from './modules/commoncomponents/components/flashbox/flashbox.component';
+import { FlashBoxComponent } from 'ng2-flashbox';
+
 
 @Component({
-  moduleId: module.id,
+  moduleId: __moduleName,
   selector: 'my-app',
   templateUrl: 'app.component.html'
 })
