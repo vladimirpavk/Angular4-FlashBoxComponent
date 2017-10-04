@@ -1,31 +1,6 @@
 <h1>Angular 4.3.6</h1>
 <h1>FlashBoxComponent {{bm1.version()}}</h1>
 
-<!--
-<button (click)="Button_clicked()"> Pritisni me </button>
-
-<div *ngIf="vrednost; else loading">
-    Vrednost je prikazana
-</div>
-
-<ng-template #loading>
-    <div>
-        Učitava se vrednost
-    </div>
-</ng-template>
-
-<flash-box #fb1>    
-        <div>
-            <label style="color: rgb(0,0,0); text-decoration: underline;">Information message</label>        
-        </div>
-        <label>
-            Any message
-        </label>
-</flash-box> 
-
-<button (click)="fb1.toggle()">Klikni me</button>
--->
-
 <h1 style="text-decoration: underline">FlashBox Component demo application</h1>
 
 <label for="sel1">Select FlashBox position: </label>
@@ -67,11 +42,11 @@
 <button (click)="bm1.flashTimes(numOfTimes.value)">Flash times</button>
 <br>
 
-<flash-box [type]="select_type.value" [position]="select_position.value" max-width="300px" setTimeout=2000 #bm1>
-    <div style="border-type: solid; border-width:2px">
-        <label style="color: rgb(0,0,0); text-decoration: underline;">Information message</label>
+<flash-box [type]="select_type.value" [position]="select_position.value" [maxwidth]=300 [setTimeout]=2000 #bm1>
+    <div style="border-style: solid; border-width:2px">
+        <label style="color: rgb(0,0,0)">Information message header</label>
     </div>
     <label>
-       User successfully deleted...
+       Information
    </label>
 </flash-box>
